@@ -18,3 +18,12 @@ phonebook_list = [
 ]
 
 print(phonebook_list[-1]["name"])
+
+
+# replace data
+phonebook["06206667788"] = {"name": "Tom", "address": "London"}
+print(phonebook)
+
+# delete
+del phonebook["06206667788"]
+print(phonebook)
