@@ -22,3 +22,5 @@ print(my_list)
 print(my_list)
 del my_list[my_list.index("Chris")]
 print(my_list)
+
+my_list.remove('Tom')
