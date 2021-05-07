@@ -1,7 +1,18 @@
-my_name = "Robert"
-my_list = ["Csaba", "Kriszta", "Tamás"]
+my_list = ["Csaba", "Kriszta", "Tamás", "Tom", "Balázs", "Marci"]
 
-name, phone = "Robert", "01334535536"
+# for index, i in enumerate(my_list):
+#     print(index, i)
 
-for index, i in enumerate(my_list):
-    print(index, i)
+for i in my_list:
+    if i == "Tamás":  # skip this item
+        continue
+
+    print(i)
+
+for i in my_list:
+    if i == "Tamás":  # break out at Tamás
+        break
+
+    print(i)
+
+print("End of code")
