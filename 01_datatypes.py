@@ -17,3 +17,6 @@ True, False  # boolean
     "06206667733": {"name": "Tamás", "address": "Debrecen"},
     "06206667711": {"name": "Csilla", "address": "Pécs"},
 }
+
+# sets
+{1, 2, 3, 4}
