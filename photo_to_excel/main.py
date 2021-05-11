@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ExifTags
 from openpyxl import Workbook
 import os
 
@@ -32,7 +32,24 @@ for index, image_file in enumerate(photo_list):
     exif_data = img._getexif()
 
     if exif_data:
-        sheet[f"C{row}"] = exif_data[306]
+        for key, value in exif_data.items():
+            tag_name = ExifTags.TAGS.get(key)
+            # print(tag_name, value)
+
+            if tag_name == "DateTime":
+                sheet[f"C{row}"] = value
+
+            elif tag_name == "Model":
+                sheet[f"D{row}"] = value
+
+            elif tag_name == "ISOSpeedRatings":
+                sheet[f"F{row}"] = value
+
+            # todo find the type of this value
+            # elif tag_name == "LensModel":
+            #     sheet[f"E{row}"] = value
+
+        # sheet[f"C{row}"] = exif_data[306]
 
 excel_file = os.path.join(folder_path, "photo_data.xlsx")
 workbook.save(excel_file)
