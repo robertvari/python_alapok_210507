@@ -1,7 +1,9 @@
 import random
 
+# constants
 min_number = 1
 max_number = 10
+max_tries = 3
 
 DEBUG = True
 
@@ -17,7 +19,17 @@ player_number = input("Your number?")
 
 
 while player_number != secret_number:
-    print("Wrong guess. Try again!")
+    max_tries -= 1
+    if max_tries == 0:
+        print("You died!")
+        break
+
+    print("Wrong guess.")
+    print(f"You have {max_tries} lives left.")
+    print("Try again.")
     player_number = input("Your number?")
 
-print("End of the game")
+if player_number == secret_number:
+    print(f"You win! My number was: {secret_number}")
+else:
+    print("You lost the game :( Maybe next time!")
